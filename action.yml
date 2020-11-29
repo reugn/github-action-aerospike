@@ -1,0 +1,22 @@
+
+name: 'Setup Aerospike Community Edition'
+description: 'Aerospike – the reliable, high performance, distributed database optimized for flash and RAM.'
+author: 'reugn'
+branding:
+  icon: 'database'
+  color: 'red'
+inputs:
+  port:
+    description: 'Aerospike port'
+    required: false
+    default: '3000'
+  config-file:
+    description: 'Aerospike configuration file'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.port }}
+    - ${{ inputs.config-file }}
