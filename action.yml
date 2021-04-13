@@ -1,5 +1,5 @@
 ---
-name: 'Setup Aerospike Community Edition'
+name: 'Set up Aerospike Database'
 description: 'Aerospike – the reliable, high performance, distributed database optimized for flash and RAM.'
 author: 'reugn'
 branding:
@@ -10,8 +10,16 @@ inputs:
     description: 'Aerospike port'
     required: false
     default: '3000'
+  server-version:
+    description: 'Aerospike server version'
+    required: false
+    default: 'latest'
   config-file:
     description: 'Aerospike configuration file'
+    required: false
+    default: ''
+  feature-key-file:
+    description: 'Aerospike EE feature key file'
     required: false
     default: ''
 runs:
@@ -19,4 +27,6 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.port }}
+    - ${{ inputs.server-version }}
     - ${{ inputs.config-file }}
+    - ${{ inputs.feature-key-file }}
