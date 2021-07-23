@@ -3,7 +3,7 @@ set -e
 
 mount=""
 if [ -n "$3" ] || [ -n "$4" ]; then
-  config_dir="/github/workspace/$(dirname $3)"
+  config_dir="$GITHUB_WORKSPACE/$(dirname $3)"
   mount="-v $config_dir:/opt/aerospike/etc"
 fi
 
