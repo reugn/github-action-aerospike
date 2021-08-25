@@ -3,9 +3,8 @@ set -e
 
 mount=""
 if [ -n "$3" ] || [ -n "$4" ]; then
-  config_dir="$GITHUB_WORKSPACE/$(dirname $3)"
+  config_dir="$(dirname $3)"
   echo $config_dir
-  ls -la $config_dir
   mount="-v /var/run/docker.sock:/var/run/docker.sock -v $config_dir:/opt/aerospike/etc"
 fi
 
